@@ -33,10 +33,35 @@ work.position = "Searching a Job";
 work.employer = "Nowhere";
 work.years = 0;
 
-var education = {};
-education["name"] = "Universidad de Jáen";
-education["years"] = "2007-2013";
-education["city"] = "Jaén";
+var education = {
+	"schools": [
+		{
+			"name" : "Universidad de Jáen",
+			"location" : "Jaén",
+			"degree" : "engineer",
+			"majors" : ["CS"],
+			"dates" : 2015,
+			"url" : "http://ujaen.es"
+		},
+		{
+			"name" : "Universidad de Jáen",
+			"location" : "Jaén",
+			"degree" : "technical engineer",
+			"majors" : ["CS"],
+			"dates" : 2012,
+			"url" : "http://ujaen.es"
+		}
+	]
+	,
+	"onlineCourses": [
+		{
+			"title" : "Javascript Basics",
+			"school" : "Udacity",
+			"dates" : 2015,
+			"url" : "http://www.udacity.com/course/ud804"
+		}
+	]
+}
 
 $("#main").append(work["position"]);
 $("#main").append(education.name);

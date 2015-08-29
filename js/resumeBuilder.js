@@ -1,15 +1,3 @@
-$("#main").append("Jose López");
-
-var awesomeThoughts = "I am Jose and I am AWESOME!";
-var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
-
-console.log(awesomeThoughts);
-console.log(funThoughts);
-/*
-var formattedName = HTMLheadername.replace("%data%", name);
-var formattedRole = HTMLheaderRole.replace("%data%", role);
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);*/
 
 var bio = {
 	"name" : "Jose López",
@@ -28,10 +16,6 @@ var bio = {
 	"bioPic" : "images/fry.jpg"
 };
 
-var work = {};
-work.position = "Searching a Job";
-work.employer = "Nowhere";
-work.years = 0;
 
 var education = {
 	"schools": [
@@ -63,5 +47,31 @@ var education = {
 	]
 }
 
-$("#main").append(work["position"]);
-$("#main").append(education.name);
+var work = {
+	"jobs": [
+		{
+			"employer" : "Universidad de Jáen",
+			"title" : "UJA Students virtual platform administrator",
+			"dates" : "July 2012 - February 2013",
+			"description" : "I was who create courses inside the platform and I help with technical support"
+		},
+		{
+			"employer" : "Myself",
+			"title" : "Android developer",
+			"dates" : "July 2014 - July 2015",
+			"description" : "I created PIAR, an Augmented Reality browser for Android devices"
+		}
+	]
+}
+
+
+var projects = {
+	"projects": [
+		{
+			"title" : "PIAR (Augmented Reality)",
+			"dates" : "July 2012 - February 2013",
+			"description" : "PIAR is an Augmented Reality browser for Android devices",
+			"url" : "https://play.google.com/store/apps/details?id=com.jmlb0003.piar"
+		}
+	]
+}

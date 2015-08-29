@@ -5,12 +5,11 @@ var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
 
 console.log(awesomeThoughts);
 console.log(funThoughts);
-/**********************************/
-var name
+/*
 var formattedName = HTMLheadername.replace("%data%", name);
 var formattedRole = HTMLheaderRole.replace("%data%", role);
 $("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
+$("#header").prepend(formattedName);*/
 
 var bio = {
 	"name" : "Jose López",
@@ -28,3 +27,16 @@ var bio = {
 	],
 	"bioPic" : "images/fry.jpg"
 };
+
+var work = {};
+work.position = "Searching a Job";
+work.employer = "Nowhere";
+work.years = 0;
+
+var education = {};
+education["name"] = "Universidad de Jáen";
+education["years"] = "2007-2013";
+education["city"] = "Jaén";
+
+$("#main").append(work["position"]);
+$("#main").append(education.name);

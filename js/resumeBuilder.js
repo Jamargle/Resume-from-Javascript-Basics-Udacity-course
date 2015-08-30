@@ -1,3 +1,11 @@
+var name = "José López";
+var formattedName = HTMLheaderName.replace("%data%", name);
+
+var role = "Web developer";
+var formattedRole = HTMLheaderRole.replace("%data%", role);
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
 
 var bio = {
 	"name" : "Jose López",

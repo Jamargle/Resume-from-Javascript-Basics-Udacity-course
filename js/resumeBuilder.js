@@ -5,8 +5,9 @@ var bio = {
 	"contacts" : {
 		"mobile" : "650-55-55-55",
 		"email" : "jmlb0003@jemail.com",
-		"github" : "jamargle",
-		"twitter" : "jmlb0003",
+		"github" : "https://github.com/Jamargle",
+		"twitter" : "https://twitter.com/jmlb0003",
+		"linkedin" : "https://es.linkedin.com/in/josemiguellopezbayona",
 		"location" : "Cambil"
 	},
 	"welcomeMessage" : "Welcome to my first Javascript-created page",
@@ -23,23 +24,33 @@ bio.display = function() {
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 	$("#topContacts").append(formattedMobile);
 
-	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	var formattedEmail = addHyperLink(HTMLemail,bio.contacts.email,bio.contacts.email);
 	$("#topContacts").append(formattedEmail);
+	$("#footerContacts").append(formattedEmail);
 
-	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-	$("#topContacts").append(formattedGithub);
+	var formattedGitHub = addHyperLink(HTMLgithub,bio.contacts.github,"Jamargle");
+	$("#topContacts").append(formattedGitHub);
+	$("#footerContacts").append(formattedGitHub);
 
-	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	var formattedTwitter = addHyperLink(HTMLtwitter,bio.contacts.twitter, "@jmlb0003");
 	$("#topContacts").append(formattedTwitter);
+	$("#footerContacts").append(formattedTwitter);
+
+	var formattedLinkedIn = addHyperLink(HTMLlinkedIn,bio.contacts.linkedin, "José Miguel López Bayona");
+	$("#topContacts").append(formattedLinkedIn);
+	$("#footerContacts").append(formattedLinkedIn);
 
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 	$("#topContacts").append(formattedLocation);
+	$("#footerContacts").append(formattedLocation);
 
 	var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 	$("#header").append(formattedBioPic);
 
 	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 	$("#header").append(formattedWelcomeMessage);
+
+
 
 	if (bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);
@@ -111,7 +122,8 @@ var projects = {
 			for (project in projects.projects) {
 				$("#projects").append(HTMLprojectStart);
 
-				var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+				//var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+				var formattedTitle = addHyperLink(HTMLprojectTitle, projects.projects[project].url, projects.projects[project].title)
 				$(".project-entry:last").append(formattedTitle);
 
 				var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
@@ -192,7 +204,11 @@ var education = {
 			$("#education").append(HTMLschoolStart);
 
 			for (school in education.schools) {
-				var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+				if (!education.schools[school].url) {
+					var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+				}else{
+					var formattedName = addHyperLink(HTMLschoolName,education.schools[school].url,education.schools[school].name);
+				}				
 				$(".education-entry:last").append(formattedName);
 
 				var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
@@ -215,7 +231,8 @@ var education = {
 			for (onlineCourse in education.onlineCourses) {
 				$('#education').append(HTMLschoolStart);	
 
-				var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[onlineCourse].title);
+				var formattedOnlineTitle = addHyperLink(HTMLonlineTitle,education.onlineCourses[onlineCourse].url, education.onlineCourses[onlineCourse].title);
+				//var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[onlineCourse].title);
 				$('.education-entry:last').append(formattedOnlineTitle);
 
 				var formattedonlineSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[onlineCourse].school);
@@ -224,8 +241,8 @@ var education = {
 				var formattedonlineDates = HTMLonlineDates.replace('%data%', education.onlineCourses[onlineCourse].dates);
 				$('.education-entry:last').append(formattedonlineDates);
 
-				var formattedonlineURL = HTMLonlineURL.replace('%data%', education.onlineCourses[onlineCourse].url);
-				$('.education-entry:last').append(formattedonlineURL);
+				//var formattedonlineURL = HTMLonlineURL.replace('%data%', education.onlineCourses[onlineCourse].url);
+				//$('.education-entry:last').append(formattedonlineURL);
 			}
 		}		
 	}
@@ -237,6 +254,17 @@ work.display();
 projects.display();
 education.display();
 
+
+function addHyperLink(html,url,text){
+    if (!text) { 
+    	text = url; 
+    }
+    
+    var formattedURL = html.replace("#", url);
+    formattedURL = formattedURL.replace("%data%",text);
+    
+    return formattedURL;
+}
 
 function inName() {
   var name = bio.name.trim().split(" ");

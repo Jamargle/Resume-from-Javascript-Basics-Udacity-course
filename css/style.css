@@ -64,19 +64,16 @@ h5 {
 
 .date-text {
   font-style: italic;
-  font-size: 14px;
+  font-size: 16px;
   color: #999;
-  line-height: 16px;
   float: left;
+  margin-right: 10px;
 }
 
 .location-text {
   font-style: italic;
   font-size: 14px;
   color: #999;
-  line-height: 16px;
-  float: right;
-
 }
 
 p {
@@ -102,6 +99,7 @@ a {
 #skills-h3 {
   color: #f5ae23;
   display: none;
+  margin-top: 25px;
 }
 
 .orange {
@@ -139,6 +137,12 @@ a {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
+  text-align: center;
+}
+
+#skills {
+  flex-direction: column;
+  text-align: left;
 }
 
 .center-content {
@@ -152,7 +156,7 @@ ul {
 .biopic {
   float: left;
   padding: 10px;
-  width: 200px;
+  width: 250px;
   display: none;
 }
 

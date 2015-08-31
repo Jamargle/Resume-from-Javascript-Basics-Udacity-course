@@ -3,7 +3,7 @@ var bio = {
 	"name" : "Jose López",
 	"role" : "Software Developer",
 	"contacts" : {
-		"mobile" : "650-55-55-55",
+		"mobile" : "650-55-55-55-55",
 		"email" : "jmlb0003@jemail.com",
 		"github" : "https://github.com/Jamargle",
 		"twitter" : "https://twitter.com/jmlb0003",
@@ -11,7 +11,7 @@ var bio = {
 		"location" : "Cambil"
 	},
 	"welcomeMessage" : "Welcome to my first Javascript-created page",
-	"skills" : ["Java & Swing & Android", "C/C++", "SQL Databases", "UX & UI", "awesomeness"],
+	"skills" : ["Java & Swing & Android", "C/C++", "SQL Databases", "UX & UI", "Javascript", "Software Engineering", "awesomeness"],
 	"bioPic" : "http://joselopez.hol.es/imagenes/yo.png"
 };
 
@@ -112,9 +112,9 @@ var projects = {
 		{
 			"title" : "Página personal",
 			"dates" : "July 2013 - February 2014",
-			"description" : "Personal website like this but in the static way, with HTML5 and CSS only.",
+			"description" : "Personal website like this but by the static way, with HTML5 and CSS only.",
 			"url" : "http://joselopez.hol.es",
-			"images" : ["http://joselopez.hol.es/imagenes/yo.png"]
+			"images" : ""
 		}
 	],
 	display() {
@@ -279,6 +279,3 @@ function inName() {
 $("#main").append(internationalizeButton);
 
 $("#mapDiv").append(googleMap);
-
-//donde viene algo de lo del mapa
-//https://discussions.udacity.com/t/google-map-div-shows-but-no-map-loads/19826/8

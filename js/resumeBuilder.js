@@ -1,7 +1,7 @@
 
 var bio = {
 	"name" : "Jose López",
-	"role" : "Web Developer",
+	"role" : "Software Developer",
 	"contacts" : {
 		"mobile" : "650-55-55-55",
 		"email" : "jmlb0003@jemail.com",
@@ -9,11 +9,9 @@ var bio = {
 		"twitter" : "jmlb0003",
 		"location" : "Cambil"
 	},
-	"welcomeMessage" : "lorem ipsum dolor sit....",
-	"skills" : [
-		"awesomeness", "delivering things", "etc"
-	],
-	"bioPic" : "images/fry.jpg"
+	"welcomeMessage" : "Welcome to my first Javascript-created page",
+	"skills" : ["Java & Swing & Android", "C/C++", "SQL Databases", "UX & UI", "awesomeness"],
+	"bioPic" : "http://joselopez.hol.es/imagenes/yo.png"
 };
 
 bio.display = function() {
@@ -46,86 +44,10 @@ bio.display = function() {
 	if (bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);
 
-		var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-		$("#skills").append(formattedSkill);
-
-		var formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-		$("#skills").append(formattedSkill);
-
-		var formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-		$("#skills").append(formattedSkill);
-		
-		var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-		$("#skills").append(formattedSkill);
-	}
-}
-
-
-var education = {
-	"schools": [
-		{
-			"name" : "Universidad de Jáen",
-			"location" : "Jaén",
-			"degree" : "engineer",
-			"majors" : ["CS"],
-			"dates" : 2015,
-			"url" : "http://ujaen.es"
-		},
-		{
-			"name" : "Universidad de Jáen",
-			"location" : "Jaén",
-			"degree" : "technical engineer",
-			"majors" : ["CS"],
-			"dates" : 2012,
-			"url" : "http://ujaen.es"
+		for (skill in bio.skills) {
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+			$("#skills").append(formattedSkill);
 		}
-	]
-	,
-	"onlineCourses": [
-		{
-			"title" : "Javascript Basics",
-			"school" : "Udacity",
-			"dates" : 2015,
-			"url" : "http://www.udacity.com/course/ud804"
-		}
-	]
-}
-
-education.display = function() {
-	for (school in education.schools) {
-		$("#education").append(HTMLschoolStart);
-
-		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
-		$(".education-entry:last").append(formattedName);
-
-		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
-		$(".education-entry:last").append(formattedLocation);
-
-		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
-		$(".education-entry:last").append(formattedDegree);
-
-		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
-		$(".education-entry:last").append(formattedDates);
-		
-		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
-		$(".education-entry:last").append(formattedMajor);
-	}
-
-	$('#education').append(HTMLonlineClasses);
-	for (onlineCourse in education.onlineCourses) {
-		$('#education').append(HTMLschoolStart);	
-
-		var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[onlineCourse].title);
-		$('.education-entry:last').append(formattedOnlineTitle);
-
-		var formattedonlineSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[onlineCourse].school);
-		$('.education-entry:last').append(formattedonlineSchool);
-
-		var formattedonlineDates = HTMLonlineDates.replace('%data%', education.onlineCourses[onlineCourse].dates);
-		$('.education-entry:last').append(formattedonlineDates);
-
-		var formattedonlineURL = HTMLonlineURL.replace('%data%', education.onlineCourses[onlineCourse].url);
-		$('.education-entry:last').append(formattedonlineURL);
 	}
 }
 
@@ -144,25 +66,25 @@ var work = {
 			"dates" : "July 2014 - July 2015",
 			"description" : "I created PIAR, an Augmented Reality browser for Android devices"
 		}
-	]
-}
+	],
+	display() {
+		if (work.jobs.length > 0) {
+			for (job in work.jobs) {
+				//Div para work experiences
+				$("#workExperience").append(HTMLworkStart);
+				//Unir el employer y el nombre del trabajo
+				var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
+				var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
+				var concattedEmployerTitle = formattedEmployer + formattedTitle;
+				$(".work-entry:last").append(concattedEmployerTitle);
 
-work.display = function() {
-	for (job in work.jobs) {
-		//Div para work experiences
-		$("#workExperience").append(HTMLworkStart);
-		//Unir el employer y el nombre del trabajo
-		var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
-		var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
-		var formattedEmployerTitle = formattedEmployer + formattedTitle;
-
-		$(".work-entry:last").append(formattedEmployerTitle);
-
-		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-		$(".work-entry:last").append(formattedDates);
-		
-		var formattedDescription = HTMLworkDescription.replace("%data%",work.jobs[job].description);
-		$(".work-entry:last").append(formattedDescription);
+				var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+				$(".work-entry:last").append(formattedDates);
+				
+				var formattedDescription = HTMLworkDescription.replace("%data%",work.jobs[job].description);
+				$(".work-entry:last").append(formattedDescription);
+			}
+		}
 	}
 }
 
@@ -171,36 +93,143 @@ var projects = {
 	"projects": [
 		{
 			"title" : "PIAR (Augmented Reality)",
-			"dates" : "July 2012 - February 2013",
+			"dates" : "July 2014 - February 2015",
 			"description" : "PIAR is an Augmented Reality browser for Android devices",
 			"url" : "https://play.google.com/store/apps/details?id=com.jmlb0003.piar",
 			"images" : ""
+		},
+		{
+			"title" : "Página personal",
+			"dates" : "July 2013 - February 2014",
+			"description" : "Personal website like this but in the static way, with HTML5 and CSS only.",
+			"url" : "http://joselopez.hol.es",
+			"images" : ["http://joselopez.hol.es/imagenes/yo.png"]
 		}
-	]
+	],
+	display() {
+		if (projects.projects.length > 0) {
+			for (project in projects.projects) {
+				$("#projects").append(HTMLprojectStart);
+
+				var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+				$(".project-entry:last").append(formattedTitle);
+
+				var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+				$(".project-entry:last").append(formattedDates);
+
+				var formattedDescription = HTMLprojectDescription.replace("%data%",projects.projects[project].description);
+				$(".project-entry:last").append(formattedDescription);
+
+				if (projects.projects[project].images.length > 0) {
+					for (image in projects.projects[project].images) {
+						var formattedImage = HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
+						$(".project-entry:last").append(formattedImage);
+					}
+				}		
+			}
+		}
+	}
 }
 
-projects.display = function() {
-	for (project in projects.projects) {
-		$("#projects").append(HTMLprojectStart);
 
-		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-		$(".project-entry:last").append(formattedTitle);
+var education = {
+	"schools": [
+		{
+			"name" : "IES Sierra Mágina",
+			"location" : "Huelma, Jaén",
+			"degree" : "ESO & Bachillerato",
+			"majors" : ["Sciences"],
+			"dates" : 2006,
+			"url" : ""
+		},
+		{
+			"name" : "Universidad de Jáen",
+			"location" : "Jaén",
+			"degree" : "Technical engineer",
+			"majors" : ["Computer Science"],
+			"dates" : 2012,
+			"url" : "http://ujaen.es"
+		},
+		{
+			"name" : "Universidad de Jáen",
+			"location" : "Jaén",
+			"degree" : "Engineer",
+			"majors" : ["Computer Science"],
+			"dates" : 2015,
+			"url" : "http://ujaen.es"
+		}
+		
+	]
+	,
+	"onlineCourses": [
+		{
+			"title" : "Analítica web",
+			"school" : "Actívate",
+			"dates" : 2014,
+			"url" : "https://www.google.com/landing/activate"
+		},
+		{
+			"title" : "HTML5, Javascript y node.js para aplicaciones web",
+			"school" : "Miriadax.net",
+			"dates" : 2015,
+			"url" : "https://www.miriadax.net/web/javascript-node-js"
+		},
+		{
+			"title" : "How to use Git and Github",
+			"school" : "Udacity",
+			"dates" : 2015,
+			"url" : "https://www.udacity.com/course/ud775"
+		},
+		{
+			"title" : "Javascript Basics",
+			"school" : "Udacity",
+			"dates" : 2015,
+			"url" : "http://www.udacity.com/course/ud804"
+		}
+	],
+	display() {
+		if (education.schools.length > 0) {
+			$("#education").append(HTMLschoolStart);
 
-		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-		$(".project-entry:last").append(formattedDates);
+			for (school in education.schools) {
+				var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+				$(".education-entry:last").append(formattedName);
 
-		var formattedDescription = HTMLprojectDescription.replace("%data%",projects.projects[project].description);
-		$(".project-entry:last").append(formattedDescription);
+				var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+				$(".education-entry:last").append(formattedLocation);
 
-		if (projects.projects[project].images.length > 0) {
-			for (image in projects.projects[project].images) {
-				var formattedImage = HTMLprojectImage.replace("%data%",projects.projects[project].image);
-				$(".project-entry:last").append(formattedImage);
+				var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+				$(".education-entry:last").append(formattedDegree);
+
+				var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+				$(".education-entry:last").append(formattedDates);
+				
+				var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
+				$(".education-entry:last").append(formattedMajor);
+			}
+		}
+		
+		if (education.onlineCourses.length > 0) {
+			$('#education').append(HTMLonlineClasses);
+
+			for (onlineCourse in education.onlineCourses) {
+				$('#education').append(HTMLschoolStart);	
+
+				var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[onlineCourse].title);
+				$('.education-entry:last').append(formattedOnlineTitle);
+
+				var formattedonlineSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[onlineCourse].school);
+				$('.education-entry:last').append(formattedonlineSchool);
+
+				var formattedonlineDates = HTMLonlineDates.replace('%data%', education.onlineCourses[onlineCourse].dates);
+				$('.education-entry:last').append(formattedonlineDates);
+
+				var formattedonlineURL = HTMLonlineURL.replace('%data%', education.onlineCourses[onlineCourse].url);
+				$('.education-entry:last').append(formattedonlineURL);
 			}
 		}		
 	}
 }
-
 
 
 bio.display();
@@ -222,3 +251,6 @@ function inName() {
 $("#main").append(internationalizeButton);
 
 $("#mapDiv").append(googleMap);
+
+//donde viene algo de lo del mapa
+//https://discussions.udacity.com/t/google-map-div-shows-but-no-map-loads/19826/8

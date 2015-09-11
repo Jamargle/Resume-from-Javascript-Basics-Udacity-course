@@ -145,7 +145,9 @@ var educationsDisplay = function() {
 
 /**********************/
 // Calls the initializeLiveMap() function when the page loads
-window.addEventListener('load', initializeLiveMap);
+window.addEventListener('load', function() {
+	initializeLiveMap(locationFinder());
+});
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds

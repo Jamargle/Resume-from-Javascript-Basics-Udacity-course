@@ -35,11 +35,11 @@ $("#mapDiv").append(googleMap);
 var ViewModel = function() {
 
 	this.showLiveMarkers = function() {
-		initializeLiveMap();
+		initializeLiveMap(locationFinder());
 	}
 
 	this.showLikeMarkers = function() {
-    initializeLikeMap();
+    initializeLikeMap(locationLikeFinder());
 	}
 }
 

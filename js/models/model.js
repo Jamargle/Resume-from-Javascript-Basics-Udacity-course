@@ -108,3 +108,16 @@ var education = {
 		}
 	]
 }
+
+var neighborhoods = {
+	"locations" : [
+		"Mont Saint Michel", 
+		"Nueva York", 
+		"Londres", 
+		"Madrid", 
+		"París", 
+		"Roma", 
+		"California",
+		"Taj Mahal"
+	]
+}

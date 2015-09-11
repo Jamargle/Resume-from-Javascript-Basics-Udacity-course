@@ -29,3 +29,18 @@ function inName() {
 $("#main").append(internationalizeButton);
 
 $("#mapDiv").append(googleMap);
+
+
+
+var ViewModel = function() {
+
+	this.showLiveMarkers = function() {
+		initializeLiveMap();
+	}
+
+	this.showLikeMarkers = function() {
+    initializeLikeMap();
+	}
+}
+
+ko.applyBindings(new ViewModel());

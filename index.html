@@ -66,8 +66,15 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
       <h2>Education</h2>
     </div>
     <div id="mapDiv">
-      <h2 class="header-map" data-bind="click: showLiveMarkers">Where I've Lived and Worked</h2>
-      <h2 class="header-map" data-bind="click: showLikeMarkers">Where I'd like to visit</h2>
+      <div id="mapHeader">
+        <h2 class="header-map" data-bind="click: showLiveMarkers">Where I've Lived and Worked</h2>
+        <h2 class="header-map" data-bind="click: showLikeMarkers">Where I'd like to visit</h2>
+      </div>
+      <div id="markerSearchBox">
+        <form action="#">  <input type='text' class='markerSearch' name='search-text' size='15' maxlength='30' placeholder='Search a marker' 
+              data-bind="value: query, valueUpdate: 'keyup'" autocomplete='off'></input> </form>
+        <div id="searchResults"></div>
+      </div>
     </div>
     <div id="lets-connect" class="dark-gray">
       <h2 class="orange center-text">Let's Connect</h2>

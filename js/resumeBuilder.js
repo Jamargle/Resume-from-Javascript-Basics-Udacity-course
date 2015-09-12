@@ -31,16 +31,40 @@ $("#main").append(internationalizeButton);
 $("#mapDiv").append(googleMap);
 
 
+var ViewModel = {
 
-var ViewModel = function() {
+  query : ko.observable(''), //Initially blank
 
-	this.showLiveMarkers = function() {
+
+	showLiveMarkers : function() {
 		initializeLiveMap(locationFinder());
-	}
+	},
 
-	this.showLikeMarkers = function() {
+	showLikeMarkers : function() {
     initializeLikeMap(locationLikeFinder());
-	}
-}
+	},
 
-ko.applyBindings(new ViewModel());
+  findThisMarker : function(searchString) {
+
+    var results = [];
+    
+    if (searchString == '') {
+      displayMarkersSearchResults(results);
+      return;
+    }
+
+    for (var pos in neighborhoods.locations) {
+      if (neighborhoods.locations[pos].toLowerCase().indexOf(searchString.toLowerCase()) >= 0) {
+        results.push(neighborhoods.locations[pos]);
+      }
+    }
+
+    displayMarkersSearchResults(results);
+  },
+
+  
+} //Fin de ViewModel
+ViewModel.query.subscribe(ViewModel.findThisMarker);
+
+ko.applyBindings(ViewModel);
+

@@ -143,7 +143,7 @@ var educationsDisplay = function() {
 }
 
 
-/**********************/
+/******** MAP ************/
 // Calls the initializeLiveMap() function when the page loads
 window.addEventListener('load', function() {
 	initializeLiveMap(locationFinder());
@@ -156,3 +156,17 @@ window.addEventListener('resize', function(e) {
   map.fitBounds(mapBounds);
 });
 
+/********** Lista de markers en la búsqueda ***********/
+var displayMarkersSearchResults = function(results) {
+	
+	if (results.length == 0) {
+		var formattedMarkerSearchResult = HTMLmarkerSearchResult.replace('%data%', "No results");
+		$('#searchResults').html(formattedMarkerSearchResult);
+	}
+
+    $('#searchResults').html("");
+	for (res in results) {
+		var formattedMarkerSearchResult = HTMLmarkerSearchResult.replace('%data%', results[res]);
+		$('#searchResults').append(formattedMarkerSearchResult);
+	}
+}

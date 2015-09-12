@@ -59,6 +59,8 @@ var HTMLonlineURL = '<br><a target=_blank href="#">%data%</a>';
 var internationalizeButton = '<button>Internationalize Name</button>';
 var googleMap = '<div id="map"></div>';
 
+var HTMLmarkerSearchResult = "<div class='markerSearchResult'>%data%</div>";
+
 
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.

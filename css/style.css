@@ -205,6 +205,8 @@ span {
 #map {
   display: block;
   height: 100%;
+  width: 70%;
+  min-width: 700px;
   margin: 0 5%;
 }
 
@@ -212,6 +214,16 @@ span {
   height: 400px;
   width: 100%;
   padding-bottom: 5%;
+}
+
+#markerSearchBox {
+  display: inline;
+  float: right;
+  margin: 20px;
+}
+
+#mapHeader {
+  display: inline;
 }
 
 @media only screen and (min-width: 750px) {
